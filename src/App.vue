@@ -1,29 +1,26 @@
 <template>
-  <Main :title="title"/>
+  <Main :title="title" />
 
-<div class="footer">
-  
-</div>
-
+  <div class="footer"></div>
 </template>
 
 <script>
-import Main from './components/Main.vue'
+import Main from "./components/Main.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Main
+    Main,
   },
-  data: function() {
-return {
-    title: "B2NH"
-  };
-},
- created(){
-      document.title = this.company_name;
-  }
-}
+  data: function () {
+    return {
+      title: "B2NH",
+    };
+  },
+  created() {
+    document.title = this.title;
+  },
+};
 </script>
 
 <style>
@@ -59,10 +56,10 @@ a {
 }
 
 .footer {
-  position:fixed;
-  bottom:0;
-  left:0;
-  width:100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   height: 40px;
   color: #2c3e50;
   font-size: 80%;
@@ -72,6 +69,4 @@ a {
 .footer a {
   color: #276fb8;
 }
-
-
 </style>
