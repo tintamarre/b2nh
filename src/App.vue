@@ -1,28 +1,46 @@
 <template>
-  <div id="main">
-    <h1 class="text-center text-xl mt-4">{{ title }}</h1>
-    <main class="container px-8 pt-24 mx-auto lg:px-4">
-      <div class="flex flex-wrap" v-if="data_fetched">
-        <div
-          class="w-full lg:w-1/2 p-3"
-          v-for="menu in fields.data.navigation_menu"
-          :key="menu.id"
-        >
+  <div id="main" class="lg:flex lg:items-center lg:justify-between">
+    <div class="flex-1 min-w-0 pt-24">
+      <h1
+        class="
+          text-center text-2xl
+          font-bold
+          leading-7
+          text-gray-900
+          sm:text-3xl sm:truncate
+        "
+      >
+        {{ title }}
+      </h1>
+      <main class="container px-8 pt-10 mx-auto lg:px-4">
+        <ExpVizus />
+
+        <div class="flex flex-wrap" v-if="data_fetched">
           <div
-            class="bg-white border-2 border-gray-300 rounded-lg shadow-lg p-8"
+            class="w-full lg:w-1/2 p-3"
+            v-for="menu in fields.data.navigation_menu"
+            :key="menu.id"
           >
-            <h2 class="text-2xl font-bold text-gray-800">
-              {{ menu.emoji }} {{ menu.title }}
-            </h2>
-            <p class="text-gray-600">
-              {{ menu.description }}
-              <a href="">{{ menu.url }}</a>
-            </p>
+            <div
+              class="bg-white border-2 border-gray-300 rounded-lg shadow-lg p-8"
+            >
+              <h2 class="text-2xl font-bold text-gray-800">
+                {{ menu.emoji }} {{ menu.title }}
+              </h2>
+              <p class="text-gray-600">
+                {{ menu.description }}
+                <a :href="menu.href">{{ menu.href }}</a>
+                <ul v-if="menu.methods">
+                  <li v-for="(method, key) in menu.methods" :key="key">{{ method.title }}: <a :href="method.href">{{ method.href }}</a></li>
+
+                </ul>
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </main>
-    <footer class="mt-auto">Footer</footer>
+      </main>
+      <footer class="mt-auto">Footer</footer>
+    </div>
   </div>
 </template>
 

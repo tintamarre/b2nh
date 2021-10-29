@@ -1,14 +1,9 @@
+const autoprefixer = require('autoprefixer');
+const tailwindcss = require('tailwindcss');
+
 module.exports = {
-  purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
-  darkMode: false,
-  theme: {
-    extend: {},
-  },
-  variants: {
-    extend: {},
-  },
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-  },
-}
+  plugins: [
+    tailwindcss,
+    autoprefixer,
+  ],
+};
