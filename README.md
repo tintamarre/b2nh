@@ -1,4 +1,4 @@
-# b2nh-front.tintamarre.be
+# B2NH frontend
 
 ## Project setup
 ```

@@ -1,72 +1,76 @@
 <template>
-  <Main :title="title" />
-
-  <div class="footer"></div>
+  <div id="main">
+    <h1 class="text-center text-xl mt-4">{{ title }}</h1>
+    <main class="container px-8 pt-24 mx-auto lg:px-4">
+      <div class="flex flex-wrap" v-if="data_fetched">
+        <div
+          class="w-full lg:w-1/2 p-3"
+          v-for="menu in fields.data.navigation_menu"
+          :key="menu.id"
+        >
+          <div
+            class="bg-white border-2 border-gray-300 rounded-lg shadow-lg p-8"
+          >
+            <h2 class="text-2xl font-bold text-gray-800">
+              {{ menu.emoji }} {{ menu.title }}
+            </h2>
+            <p class="text-gray-600">
+              {{ menu.description }}
+              <a href="">{{ menu.url }}</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="mt-auto">Footer</footer>
+  </div>
 </template>
 
 <script>
-import Main from "./components/Main.vue";
+import getDataMixin from "@/mixins/getDataMixin";
 
 export default {
+  mixins: [getDataMixin],
   name: "App",
-  components: {
-    Main,
-  },
+
   data: function () {
     return {
       title: "B2NH",
     };
   },
+  methods: {},
+  mounted() {},
   created() {
     document.title = this.title;
   },
 };
 </script>
 
+
 <style>
-body {
-  background-color: #fafafa;
-}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  max-width: 720px;
+  margin: 100px auto;
+  padding: 0 20px;
 }
 
-h2 {
-  margin: 40px 0 0;
-}
-
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #276fb8;
-}
-
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
+svg {
+  /* important for responsiveness */
+  display: block;
+  fill: none;
+  stroke: none;
   width: 100%;
-  height: 40px;
-  color: #2c3e50;
-  font-size: 80%;
-  background-color: #fafafa;
+  height: 100%;
+  overflow: visible;
+  background: rgb(246, 255, 214);
 }
 
-.footer a {
-  color: #276fb8;
+.buttons {
+  margin-top: 2rem;
 }
 </style>
