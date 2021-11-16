@@ -12,6 +12,12 @@
           Autem, temporibus.
         </p>
         <div class="flex flex-wrap">
+          <bar-chart
+            :data="data_barchart"
+            title="Bar Chart"
+            xKey="name"
+            yKey="amount"
+          ></bar-chart>
           <ChartWraper />
           <ChartWraper />
           <ChartWraper />
@@ -23,3 +29,30 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      data_barchart: [
+        {
+          name: "Roses",
+          amount: 25,
+        },
+        {
+          name: "Tulips",
+          amount: 40,
+        },
+        {
+          name: "Daisies",
+          amount: 15,
+        },
+        {
+          name: "Narcissuses",
+          amount: 9,
+        },
+      ],
+    };
+  },
+};
+</script>

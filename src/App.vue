@@ -1,46 +1,37 @@
 <template>
-  <div id="main" class="lg:flex lg:items-center lg:justify-between">
-    <div class="flex-1 min-w-0 pt-24">
-      <h1
-        class="
-          text-center text-2xl
-          font-bold
-          leading-7
-          text-gray-900
-          sm:text-3xl sm:truncate
-        "
-      >
-        {{ title }}
-      </h1>
-      <main class="container px-8 pt-10 mx-auto lg:px-4">
-        <ExpVizus />
+  <div id="main" class="flex flex-col h-screen justify-between">
+    <header class="h-10 p-4">
+      <h1 class="text-gray-500 text-xl">Back 2 Natural Hazards</h1>
+    </header>
 
-        <div class="flex flex-wrap" v-if="data_fetched">
-          <div
-            class="w-full lg:w-1/2 p-3"
-            v-for="menu in fields.data.navigation_menu"
-            :key="menu.id"
-          >
-            <div
-              class="bg-white border-2 border-gray-300 rounded-lg shadow-lg p-8"
+    <main class="container mb-auto h-10">
+      <div>
+        <!-- <ul class="flex">
+          <li class="mr-6">
+            <router-link to="/" class="text-blue-500 hover:text-blue-800"
+              >Home</router-link
             >
-              <h2 class="text-2xl font-bold text-gray-800">
-                {{ menu.emoji }} {{ menu.title }}
-              </h2>
-              <p class="text-gray-600">
-                {{ menu.description }}
-                <a :href="menu.href">{{ menu.href }}</a>
-                <ul v-if="menu.methods">
-                  <li v-for="(method, key) in menu.methods" :key="key">{{ method.title }}: <a :href="method.href">{{ method.href }}</a></li>
+          </li>
+          <li class="mr-6">
+            <router-link to="/event" class="text-blue-500 hover:text-blue-800"
+              >Event</router-link
+            >
+          </li>
+        </ul> -->
 
-                </ul>
-              </p>
-            </div>
-          </div>
-        </div>
-      </main>
-      <footer class="mt-auto">Footer</footer>
-    </div>
+        <router-view class="view"></router-view>
+      </div>
+    </main>
+    <footer class="h-12 bg-gray-400 text-white text-center text-sm">
+      Invented by <strong>Dr. Emmett Brown</strong> <br />
+      Designed with ❤️ by fellow students.
+      <a
+        href="https://github.com/tintamarre/b2nh"
+        target="_blank"
+        class="hover:text-blue-500"
+        >Source code available on GitHub.</a
+      >
+    </footer>
   </div>
 </template>
 
@@ -85,7 +76,7 @@ svg {
   width: 100%;
   height: 100%;
   overflow: visible;
-  background: rgb(246, 255, 214);
+  /* background: rgb(246, 255, 214); */
 }
 
 .buttons {

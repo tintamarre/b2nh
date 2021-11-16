@@ -6,3 +6,6 @@ Libraries:
 - D3 Network https://emiliorizzo.github.io/vue-d3-network/
 - D3 Geo https://github.com/komushi/vue-d3-geo
 - D3 various https://www.npmjs.com/package/v-chart-plugin
+
+Les 10 volcans les plus gros
+Les 10 séismes les plus important

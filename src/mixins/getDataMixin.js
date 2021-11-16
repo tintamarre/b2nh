@@ -20,7 +20,7 @@ export default {
     methods: {
       fetchData(page_url){
         if (page_url == null) { // If page_url not specified
-          page_url = "http://b2nh.tintamarre.be/api/v1";
+          page_url = "http://b2nh-api.tintamarre.be/api/v1";
           // if(this.$route.fullPath == '/') {
           // }
           // else {
